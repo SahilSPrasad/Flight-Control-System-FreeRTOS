@@ -164,12 +164,12 @@
     <ClInclude Include="FreeRTOS\Source\include\task.h" />
     <ClInclude Include="FreeRTOS\Source\include\timers.h" />
     <ClInclude Include="FreeRTOS\Source\portable\MSVC-MingW\portmacro.h" />
-    <ClInclude Include="imu_driver.h" />
     <ClInclude Include="madgwick_filter.h" />
     <ClInclude Include="tasks\imu_task.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FreeRTOS\Source\include\CMakeLists.txt" />
+    <Text Include="tasks\fusion_task.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FreeRTOS\Source\include\stdint.readme" />

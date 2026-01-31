@@ -149,22 +149,22 @@
     <ClInclude Include="FreeRTOS\Source\include\timers.h">
       <Filter>FreeRTOS Source\include</Filter>
     </ClInclude>
-    <ClInclude Include="imu_driver.h">
-      <Filter>drivers</Filter>
-    </ClInclude>
-    <ClInclude Include="driver\imu_driver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="madgwick_filter.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="tasks\imu_task.h">
       <Filter>tasks</Filter>
     </ClInclude>
+    <ClInclude Include="driver\imu_driver.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FreeRTOS\Source\include\CMakeLists.txt">
       <Filter>FreeRTOS Source\include</Filter>
+    </Text>
+    <Text Include="tasks\fusion_task.h">
+      <Filter>tasks</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

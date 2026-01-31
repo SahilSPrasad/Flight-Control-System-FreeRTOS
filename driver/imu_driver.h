@@ -1,3 +1,7 @@
+#ifndef IMU_DRIVER_H
+#define IMU_DRIVER_H
+
+
 struct imuData {
 	float ax, ay, az; //accelerometer
 	float gx, gy, gz; //gyroscope
@@ -7,3 +11,4 @@ struct imuData {
 
 imuData readImu();
 
+#endif // IMU_DRIVER_H
