@@ -29,6 +29,12 @@ void fusionTask(void* pvParameters) {
             printf("Fusion got IMU: ax=%f ay=%f az=%f gx=%f gy=%f gz=%f\n",
                 imu.ax, imu.ay, imu.az,
                 imu.gx, imu.gy, imu.gz);
+
+
+			computeMadgwick(imu, q);
+			float roll, pitch, yaw;
+			quatToEuler(q, roll, pitch, yaw);
+			printf("Orientation: roll=%f pitch=%f yaw=%f\n", roll, pitch, yaw);
             taskEXIT_CRITICAL();
 		}
 

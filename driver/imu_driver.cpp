@@ -11,9 +11,9 @@ imuData readImu() {
     data.ax = (rand() % 2000 - 1000) / 1000.0f;; // Random value between -10 and 10
     data.ay = (rand() % 2000 - 1000) / 1000.0f;
     data.az = 1.0f; // Simulating gravity
-    data.gx = (rand() % 2000 - 1000) / 1000.0f;
-    data.gy = (rand() % 2000 - 1000) / 1000.0f;
-    data.gz = (rand() % 2000 - 1000) / 1000.0f;
+    data.gx = (rand() % 20000 - 10000) / 1000.0f;  // -10 → 10 rad/s
+    data.gy = (rand() % 20000 - 10000) / 1000.0f;
+    data.gz = (rand() % 20000 - 10000) / 1000.0f;
 
 
     return data;
