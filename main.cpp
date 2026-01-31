@@ -11,28 +11,29 @@
 #include "timers.h"
 
 //FCS includes
+#include "imu_driver.h"
 #include "imu_task.h"
+#include "fusion_task.h"
 #include <queues.h>
 
 
+QueueHandle_t imuQueue;
+
 int main()
 {
+	imuQueue = xQueueCreate(10, sizeof(imuData));
+    //if (imuQueue == NULL) {
+    //    printf("Failed to create queue!\n");
+    //    while (1);
+    //}
+
+    xTaskCreate(imuTask, "imuTask", 1000, NULL, 4, NULL);
+    xTaskCreate(fusionTask, "fusionTask", 1000, NULL, 4, NULL);
     
-    std::cout << "Hello World!\n";
-    BaseType_t xReturned;
-    xReturned = xTaskCreate(imuTask, "imuTask", 256, NULL, 3, NULL);
+    
+
     printf("Free heap: %zu bytes\n", xPortGetFreeHeapSize());
 
-    
-
-    if (xReturned == pdPASS)
-    {
-        printf("created\n");
-    }
-    else
-    {
-        printf("Task creation failed! Error code: %d\n", (int)xReturned);
-    }
 
 
     vTaskStartScheduler();
@@ -43,6 +44,10 @@ int main()
 
 
 //Extra functions needed to compile
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char* pcTaskName) {
+    printf("Stack overflow in task %s\n", pcTaskName);
+    for (;;);
+}
 void vAssertCalled(const char* file, int line) {
     printf("ASSERT CALLED! file: %s  line: %ld", file, line);
 }

@@ -8,11 +8,17 @@ struct Quaternion {
 	float q3;
 };
 
+static float beta = 0.1f; //algorithm gain
+static float dt = 1.0f / 100.0f; 
+
+
 Quaternion initQuat();
 Quaternion getWquat(float gx, float gy, float gz);
 void printQuat(Quaternion quat);
 Quaternion calculateQdot(Quaternion current, Quaternion w_quat);
-void computeMadgwick(imuData imu);
+void normalizeQuat(Quaternion& q);
+void computeMadgwick(imuData imu, Quaternion& q);
+void quatToEuler(const Quaternion& q, float& roll, float& pitch, float& yaw);
 
 //q: where you're currently oriented
 //w_quat: how fast you're rotating right now, (gyroscope - angular velocity)
@@ -26,5 +32,6 @@ void computeMadgwick(imuData imu);
 //use the angular velocity formula to compute quaternion kinematics q̇ - time derivate of the quaternion
 // q̇ = current orientation quaternion
 
-//step 3 gradient decent step?
+//step 3 gradient decent step
+//The gradient step tries to correct the quaternion orientation q using accelerometer measurements.
 
