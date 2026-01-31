@@ -35,7 +35,7 @@ Quaternion calculateQdot(Quaternion current, Quaternion w_quat) {
 	qDot.q0 = -0.5 * (current.q1 * w_quat.q1 + current.q2 * w_quat.q2 + current.q3 * w_quat.q3);
 	qDot.q1 =  0.5 * (current.q0 * w_quat.q1 + current.q2 * w_quat.q3 - current.q3 * w_quat.q2);
 	qDot.q2 =  0.5 * (current.q0 * w_quat.q2 - current.q1 * w_quat.q3 + current.q3 * w_quat.q1);
-	qDot.q3 =  0.5 * (current.q0 * w_quat.q1 + current.q2 * w_quat.q2 - current.q3 * w_quat.q3);
+    qDot.q3 =  0.5 * (current.q0 * w_quat.q3 + current.q1 * w_quat.q2 - current.q2 * w_quat.q1);
 
 	return qDot;
 }
